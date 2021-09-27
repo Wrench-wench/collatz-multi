@@ -26,6 +26,7 @@ def collatz(starting_number) -> dict:
         steps_history.append(number)
 
     step_dict[starting_number] = steps_history
+    print('The number', starting_number, 'has', len(steps_history), 'steps.')
     return step_dict
 
 
