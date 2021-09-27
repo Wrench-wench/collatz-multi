@@ -33,9 +33,8 @@ def collatz(starting_number) -> dict:
 # step_dict['UniquekeyName'] = 'Value'
 
 if __name__ == "__main__":
-    results = []
+
     for run in range(2,31):
         run = multiprocessing.Process(target=collatz, args=(run,))
-        results.append(run)
         run.start()
 
