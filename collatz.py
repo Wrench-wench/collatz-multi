@@ -29,7 +29,7 @@ def collatz(starting_number) -> dict:
 
 runs = 30
 
-while runs > 2:
+while runs > 1:
     run = collatz(runs)
     steps = (next(iter(run.items())))
 
