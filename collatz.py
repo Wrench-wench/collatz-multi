@@ -13,7 +13,7 @@ def collatz(numberloops):
 
                 if (number % 2) == 0:                  # If the number is even, divide it by two.
                     number = number // 2               # Integer division where the remainder is discarded: //
-                    steplist.append(number)            # The operation yields an int instead of a float
+                    steplist.append(number)
                     steps += 1
 
                 else:                                  # If the number is odd, triple it and add one.
