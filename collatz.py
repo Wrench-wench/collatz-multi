@@ -21,17 +21,18 @@ def collatz(starting_number) -> dict:
         steps_history.append(number)
 
     step_dict[starting_number] = steps_history
-    print(step_dict)
     return step_dict
 
 
 # How to add a key and value in one line:
 # step_dict['UniquekeyName'] = 'Value'
 
-collatz(10)
-collatz(3)
-run = collatz(30)
+runs = 30
 
-print('Result for the number', next(iter(run)))
-steps = (next(iter(run.items())))
-print('Number of steps', len(steps[1]))
+while runs > 2:
+    run = collatz(runs)
+    steps = (next(iter(run.items())))
+
+    # Print results
+    print('Result for the number', next(iter(run)), 'Number of steps', len(steps[1]))
+    runs += -1
