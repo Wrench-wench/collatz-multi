@@ -7,7 +7,6 @@ print('Number of CPUs:', multiprocessing.cpu_count())
 
 def collatz(starting_number) -> dict:
 
-    print('starting run', starting_number)
     step_dict = {}
     number = starting_number
     steps = 0
@@ -34,8 +33,9 @@ def collatz(starting_number) -> dict:
 
 if __name__ == "__main__":
     time_start = time.time()
+    print(f'Checkpoint 0:', round(time.time() - time_start,2), 'seconds')
     dict_list = []
-    runs = 1000000
+    runs = 500000
 
     Q = multiprocessing.Queue()
     for run in range(2,(runs + 1)):
@@ -45,7 +45,7 @@ if __name__ == "__main__":
         dict_name = Q.get()
         dict_list.append(dict_name)
         run.join()
-    print(f'Checkpoint 1:', round(time.time() - time_start,2))
+    print(f'Checkpoint 1:', round(time.time() - time_start,2), 'seconds')
 
     full_dict = {}
     for dict in dict_list:
@@ -54,12 +54,12 @@ if __name__ == "__main__":
     for k,v in full_dict.items(): #
         newvalue = {k : len(v)}
         full_dict.update(newvalue)
-    print(f'Checkpoint 2:', round(time.time() - time_start,2))
+    print(f'Checkpoint 2:', round(time.time() - time_start,2), 'seconds')
 
     df = px.data.iris()
     df = pd.DataFrame.from_dict(full_dict, orient ='index', columns=["Number of steps"])
-    print(df)
-    fig = px.scatter(df, y="Number of steps", color=df.index)
+    df.index.names = ['Starting number']
+    fig = px.scatter(df, y="Number of steps", color=df.index, title=str(f'{runs} runs done in {int(time.time() - time_start)} seconds 😁'))
     fig.show()
 
-    print(f'Time taken for {runs} runs:', round(time.time() - time_start,2))
+    print(f'Time taken for {runs} runs:', round(time.time() - time_start,2), 'seconds')
