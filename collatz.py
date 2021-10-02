@@ -37,15 +37,22 @@ def collatz(starting_number) -> dict:
 
 if __name__ == "__main__":
     time_start = time.time()
-
-    runs = 1000000
+    dict_list = []
+    runs = 10000
 
     Q = multiprocessing.Queue()
-    for run in range((runs + 1)):
+    for run in range(2,(runs + 1)):
+        dict_name = f'run-{run}'
         run = multiprocessing.Process(target=collatz, args=(run,))
         run.start()
-        Q.get()
+        dict_name = Q.get()
+        dict_list.append(dict_name)
         run.join()
 
-    print(f'Time taken for {runs} runs:', time.time() - time_start)
+    full_dict = {}
+    for dict in dict_list:
+        full_dict = {**full_dict, **dict} # Shallow merge two dicts: z = {**x, **y}
 
+    for k,v in full_dict.items():
+        print(k,':', len(v))
+    print(f'Time taken for {runs} runs:', time.time() - time_start)
