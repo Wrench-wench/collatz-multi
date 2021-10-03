@@ -3,7 +3,6 @@ import time
 
 print('Number of CPUs:', multiprocessing.cpu_count())
 
-
 def collatz(starting_number) -> dict:
 
     step_dict = {}
@@ -28,17 +27,12 @@ def collatz(starting_number) -> dict:
         steps_history.append(number)
 
     step_dict[starting_number] = steps_history
-    #print('The number', starting_number, 'has', len(steps_history), 'steps.')
     Q.put(step_dict)
-
-
-# How to add a key and value in one line:
-# step_dict['UniquekeyName'] = 'Value'
 
 if __name__ == "__main__":
     time_start = time.time()
     dict_list = []
-    runs = 10000
+    runs = 1000
 
     Q = multiprocessing.Queue()
     for run in range(2,(runs + 1)):
