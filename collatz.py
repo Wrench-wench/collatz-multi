@@ -31,6 +31,7 @@ def collatz(starting_number) -> dict:
 
 if __name__ == "__main__":
     time_start = time.time()
+    print(f'Checkpoint 0:', round(time.time() - time_start,2), 'seconds')
     dict_list = []
     runs = 1000
 
@@ -42,6 +43,7 @@ if __name__ == "__main__":
         dict_name = Q.get()
         dict_list.append(dict_name)
         run.join()
+    print(f'Checkpoint 1:', round(time.time() - time_start,2), 'seconds')
 
     full_dict = {}
     for dict in dict_list:
@@ -49,4 +51,5 @@ if __name__ == "__main__":
 
     for k,v in full_dict.items():
         print(k,':', len(v))
+    print(f'Checkpoint 2:', round(time.time() - time_start,2), 'seconds')
     print(f'Time taken for {runs} runs:', time.time() - time_start)
