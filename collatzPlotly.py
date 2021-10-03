@@ -56,7 +56,6 @@ if __name__ == "__main__":
         full_dict.update(newvalue)
     print(f'Checkpoint 2:', round(time.time() - time_start,2), 'seconds')
 
-    df = px.data.iris()
     df = pd.DataFrame.from_dict(full_dict, orient ='index', columns=["Number of steps"])
     df.index.names = ['Starting number']
     fig = px.scatter(df, y="Number of steps", color=df.index, title=str(f'{runs} runs done in {int(time.time() - time_start)} seconds 😁'))
