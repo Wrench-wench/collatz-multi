@@ -14,5 +14,9 @@ ploty
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the needed packages.
 
 ```bash
-python3 -m pip install --upgrade pip pandas plotly
+pip install --upgrade pip pandas plotly
+```
+or use the requirements.txt:
+```bash
+pip install -r requirements.txt
 ```
