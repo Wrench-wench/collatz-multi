@@ -35,7 +35,7 @@ if __name__ == "__main__":
     time_start = time.time()
     print(f'Checkpoint 0:', round(time.time() - time_start,2), 'seconds')
     dict_list = []
-    runs = 500000
+    runs = 50000
 
     Q = multiprocessing.Queue()
     for run in range(2,(runs + 1)):
@@ -58,7 +58,12 @@ if __name__ == "__main__":
 
     df = pd.DataFrame.from_dict(full_dict, orient ='index', columns=["Number of steps"])
     df.index.names = ['Starting number']
-    fig = px.scatter(df, y="Number of steps", color=df.index, title=str(f'{runs} runs done in {int(time.time() - time_start)} seconds 😁'))
-    fig.show()
+    fig = px.scatter(df, y="Number of steps", color=df.index,
+                    title=str(f'{runs} runs done in {int(time.time() - time_start)} seconds 😁'),
+                    color_continuous_scale=px.colors.sequential.Bluered,
+                    width=3840, height=2160)
+
+    fig.write_html(f"output-HTML/file-{int(time.time())}.html")
+    fig.write_image(f"output-PNG/file-{int(time.time())}.png")
 
     print(f'Time taken for {runs} runs:', round(time.time() - time_start,2), 'seconds')
