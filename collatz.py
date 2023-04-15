@@ -3,7 +3,7 @@ import time
 
 print('Number of CPUs:', multiprocessing.cpu_count())
 
-def collatz(starting_number) -> dict:
+def collatz(starting_number):
 
     step_dict = {}
     number = starting_number
