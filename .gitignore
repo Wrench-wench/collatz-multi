@@ -1,4 +1,4 @@
-.github
 .vscode
+.venv
 output-HTML/*
 output-PNG/*
