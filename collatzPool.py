@@ -1,6 +1,8 @@
 import multiprocessing
 import time
 
+runs = 1000000
+
 def collatz(starting_number):
 
     step_dict = {}
@@ -32,7 +34,6 @@ if __name__ == "__main__":
     print(f'Checkpoint 0:', round(time.time() - time_start, 2), 'seconds')
     coll_list = []
     coll_dict = {}
-    runs = 1000000
 
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
         coll_dict[runs] = pool.map(collatz, range(runs))
