@@ -1,3 +1,10 @@
+##########################################################
+#                                                        #
+#   Don't use this script, it wasn't written correctly   #
+#   Use the collatzPool.py file instead.                 #
+#                                                        #
+##########################################################
+
 import multiprocessing
 import time
 
