@@ -1,7 +1,8 @@
 import multiprocessing
 import time
+import sys
 
-runs = 1000000
+DEFAULT_RUNS = 1000
 
 def collatz(starting_number):
 
@@ -29,6 +30,13 @@ def collatz(starting_number):
     return steps_history
 
 if __name__ == "__main__":
+
+    if (len(sys.argv) <= 1):
+        runs = DEFAULT_RUNS
+    else:
+        print (sys.argv[1])
+        runs = int(sys.argv[1])
+
     time_start = time.time()
     print('Number of CPUs:', multiprocessing.cpu_count())
     print(f'Checkpoint 0:', round(time.time() - time_start, 2), 'seconds')
