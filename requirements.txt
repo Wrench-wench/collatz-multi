@@ -1,3 +1,4 @@
 pandas
 plotly-express
 kaleido # Dependancy of plotly-express
+cachetools
