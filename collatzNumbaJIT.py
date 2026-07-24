@@ -1,5 +1,4 @@
 import time
-import sys
 from numba import njit, prange
 
 runs = 9223372036854775807
