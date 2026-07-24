@@ -2,7 +2,7 @@ import multiprocessing
 import time
 import sys
 
-DEFAULT_RUNS = 1000
+DEFAULT_RUNS = 100000000
 
 def collatz(starting_number):
 

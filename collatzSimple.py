@@ -1,9 +1,9 @@
-#####################################################################
-#                                                                   #
-#   Don't use this script, it wasn't written efficently correctly   #
-#   Use the collatzPool.py file instead.                            #
-#                                                                   #
-#####################################################################
+########################################################################
+#                                                                      #
+#   Don't use this script, it wasn't written efficently or correctly   #
+#   Use the collatzPool.py file instead.                               #
+#                                                                      #
+########################################################################
 
 
 import multiprocessing
